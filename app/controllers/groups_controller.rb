@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
     @group.user = current_user
 
     if @group.save
+      current_user.jion!(@group)
       redirect_to groups_path
     else
       render :new
